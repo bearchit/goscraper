@@ -5,14 +5,12 @@ import (
 
 	"github.com/bearchit/goscraper/summary"
 
-	"github.com/bearchit/goscraper"
-
 	"github.com/gocolly/colly"
 )
 
 type html struct{}
 
-func NewHTML() goscraper.Summarizer {
+func NewHTML() summary.Summarizer {
 	return &html{}
 }
 

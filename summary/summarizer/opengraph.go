@@ -7,14 +7,12 @@ import (
 
 	"github.com/bearchit/goscraper/image"
 
-	"github.com/bearchit/goscraper"
-
 	"github.com/gocolly/colly"
 )
 
 type openGraph struct{}
 
-func NewOpenGraph() goscraper.Summarizer {
+func NewOpenGraph() summary.Summarizer {
 	return &openGraph{}
 }
 

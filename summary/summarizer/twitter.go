@@ -5,14 +5,13 @@ import (
 
 	"github.com/gocolly/colly"
 
-	"github.com/bearchit/goscraper"
 	"github.com/bearchit/goscraper/image"
 	"github.com/bearchit/goscraper/summary"
 )
 
 type twitterCard struct{}
 
-func NewTwitterCard() goscraper.Summarizer {
+func NewTwitterCard() summary.Summarizer {
 	return &twitterCard{}
 }
 

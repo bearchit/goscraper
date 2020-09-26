@@ -2,7 +2,6 @@ package goscraper
 
 import (
 	"context"
-	"fmt"
 	"sync"
 	"testing"
 
@@ -27,9 +26,10 @@ func TestHeader_Run(t *testing.T) {
 			defer wait.Done()
 			r, err := s.Run(ctx, url)
 			if err != nil {
-				fmt.Println(err)
+				t.Error(err)
 			}
-			fmt.Println(url, spew.Sdump(r))
+
+			t.Logf("%s => %s", url, spew.Sdump(r))
 		}(url)
 	}
 	wait.Wait()

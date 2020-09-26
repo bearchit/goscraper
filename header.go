@@ -6,19 +6,14 @@ import (
 
 	"github.com/bearchit/goscraper/summary"
 
+	"github.com/gocolly/colly"
 	"github.com/imdario/mergo"
 
-	"github.com/bearchit/goscraper/summarizer"
-
-	"github.com/gocolly/colly"
+	"github.com/bearchit/goscraper/summary/summarizer"
 )
 
-type Summarizer interface {
-	Summarize(ctx context.Context, e *colly.HTMLElement) (*summary.Summary, error)
-}
-
 type Header struct {
-	summarizers []Summarizer
+	summarizers []summary.Summarizer
 }
 
 func (h Header) Run(ctx context.Context, rawurl string) (*summary.Summary, error) {
@@ -48,7 +43,7 @@ func (h Header) Run(ctx context.Context, rawurl string) (*summary.Summary, error
 }
 
 func DefaultHeader() *Header {
-	return &Header{summarizers: []Summarizer{
+	return &Header{summarizers: []summary.Summarizer{
 		summarizer.NewOpenGraph(),
 		summarizer.NewTwitterCard(),
 		summarizer.NewHTML(),
