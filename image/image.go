@@ -1,4 +1,4 @@
-package goscraper
+package image
 
 import "strconv"
 
@@ -9,7 +9,7 @@ type Image struct {
 	Alt    string
 }
 
-func imageSizeFromString(s string) int {
+func ImageSizeFromString(s string) int {
 	v, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
 		return 0
